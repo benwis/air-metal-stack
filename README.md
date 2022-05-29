@@ -49,6 +49,9 @@ This will add the dependency to your `package.json` file.
     ...
 ```
 
+## Deployment
+Currently using a github action
+
 ## Notes:
 
 _To prevent remix from including the rust-functions library in the client build we can re-export the functions using a `.server.ts` file, e.g. [rust.server.ts](app/rust.server.ts)_
