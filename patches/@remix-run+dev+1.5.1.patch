@@ -1,0 +1,27 @@
+diff --git a/node_modules/@remix-run/dev/compiler/loaders.js b/node_modules/@remix-run/dev/compiler/loaders.js
+index 99850a3..a5af2b4 100644
+--- a/node_modules/@remix-run/dev/compiler/loaders.js
++++ b/node_modules/@remix-run/dev/compiler/loaders.js
+@@ -59,6 +59,7 @@ const loaders = {
+   ".ts": "ts",
+   ".tsx": "tsx",
+   ".ttf": "file",
++  ".wasm": "file",
+   ".wav": "file",
+   ".webm": "file",
+   ".webmanifest": "file",
+diff --git a/node_modules/@remix-run/dev/modules.d.ts b/node_modules/@remix-run/dev/modules.d.ts
+index 4bc9a62..ce8e35c 100644
+--- a/node_modules/@remix-run/dev/modules.d.ts
++++ b/node_modules/@remix-run/dev/modules.d.ts
+@@ -69,6 +69,10 @@ declare module "*.ttf" {
+     let asset: string;
+     export default asset;
+ }
++declare module "*.wasm" {
++    let asset: string;
++    export default asset;
++}
+ declare module "*.wav" {
+     let asset: string;
+     export default asset;

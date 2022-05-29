@@ -1,0 +1,31 @@
+rust_functions:build: cache hit, replaying output [2m0abd8344e443b309[0m
+[35mrust_functions:build: [0m
+[35mrust_functions:build: [0m> rust_functions@1.0.0 build
+[35mrust_functions:build: [0m> npm run build:browser && npm run build:node
+[35mrust_functions:build: [0m
+[35mrust_functions:build: [0m
+[35mrust_functions:build: [0m> rust_functions@1.0.0 build:browser
+[35mrust_functions:build: [0m> wasm-pack build --target web --out-dir ./build/browser && rimraf ./build/browser/package.json
+[35mrust_functions:build: [0m
+[35mrust_functions:build: [0m[INFO]: Checking for the Wasm target...
+[35mrust_functions:build: [0m[INFO]: Compiling to Wasm...
+[35mrust_functions:build: [0m    Finished release [optimized] target(s) in 0.01s
+[35mrust_functions:build: [0m[WARN]: :-) origin crate has no README
+[35mrust_functions:build: [0m[INFO]: Installing wasm-bindgen...
+[35mrust_functions:build: [0m[INFO]: Optimizing wasm binaries with `wasm-opt`...
+[35mrust_functions:build: [0m[INFO]: Optional fields missing from Cargo.toml: 'description', 'repository', and 'license'. These are not necessary, but recommended
+[35mrust_functions:build: [0m[INFO]: :-) Done in 0.99s
+[35mrust_functions:build: [0m[INFO]: :-) Your wasm pkg is ready to publish at /Users/benwis/Documents/remix-air-metal/packages/rust_functions/./build/browser.
+[35mrust_functions:build: [0m
+[35mrust_functions:build: [0m> rust_functions@1.0.0 build:node
+[35mrust_functions:build: [0m> wasm-pack build --target nodejs --out-dir ./build/node && rimraf ./build/node/package.json
+[35mrust_functions:build: [0m
+[35mrust_functions:build: [0m[INFO]: Checking for the Wasm target...
+[35mrust_functions:build: [0m[INFO]: Compiling to Wasm...
+[35mrust_functions:build: [0m    Finished release [optimized] target(s) in 0.00s
+[35mrust_functions:build: [0m[WARN]: :-) origin crate has no README
+[35mrust_functions:build: [0m[INFO]: Installing wasm-bindgen...
+[35mrust_functions:build: [0m[INFO]: Optimizing wasm binaries with `wasm-opt`...
+[35mrust_functions:build: [0m[INFO]: Optional fields missing from Cargo.toml: 'description', 'repository', and 'license'. These are not necessary, but recommended
+[35mrust_functions:build: [0m[INFO]: :-) Done in 0.23s
+[35mrust_functions:build: [0m[INFO]: :-) Your wasm pkg is ready to publish at /Users/benwis/Documents/remix-air-metal/packages/rust_functions/./build/node.

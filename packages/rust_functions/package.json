@@ -1,0 +1,28 @@
+{
+    "name": "rust_functions",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+      "build": "npm run build:browser && npm run build:node",
+      "build:browser": "wasm-pack build --target web --out-dir ./build/browser && rimraf ./build/browser/package.json",
+      "build:node": "wasm-pack build --target nodejs --out-dir ./build/node && rimraf ./build/node/package.json"
+    },
+    "sideEffects": false,
+    "files": [
+      "build"
+    ],
+    "types": "./build/browser/rust_functions.d.ts",
+    "exports": {
+      ".": {
+        "browser": "./build/browser/rust_functions.js",
+        "node": "./build/node/rust_functions.js"
+      },
+      "./binary.wasm": {
+        "browser": "./build/browser/rust_functions_bg.wasm",
+        "node": "./noop.js"
+      }
+    },
+    "devDependencies": {
+      "rimraf": "^3.0.2"
+    }
+  }
