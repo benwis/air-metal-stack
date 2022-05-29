@@ -58,6 +58,12 @@ jobs:
       - name: 📝 Copy Rust WASM package files into output dir
         run: mkdir -p ./deno/rust_functions/build/browser && cp -R ./packages/rust_functions/build/browser/ ./deno/rust_functions/build/browser
       
+      - name: 🔍 List file contents of root
+        run: tree ./
+      
+      - name: 🔍 List file contents of deno dir
+        run: tree ./deno
+
       - name: 🚛 Ship It
         uses: denoland/deployctl@v1
         with:
