@@ -49,6 +49,9 @@ jobs:
       - name: 🗑️ Throw out deps
         run: rm -rf ./packages/remix-app/node_modules
 
+      - name: 🗑️ Throw out more deps
+        run: rm -rf ./node_modules
+        
       - name: 📂 Make deno dir
         run: mkdir ./deno
 

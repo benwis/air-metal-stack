@@ -5,12 +5,12 @@ import * as build from "@remix-run/dev/server-build";
 
 // Import the WASM init function from your Rust JS wrapper
 import init from "../rust_functions/build/browser/rust_functions.js";
-
+import wasm from "../rust_functions/build/browser/rust_functions_bg.wasm.d.ts"
 
 const go = async () => {
 
   // You'll need to read the WASM file from the build directory
-  await init(Deno.readFile('./'));
+  await init(Deno.readFile(wasm));
 
   const remixHandler = createRequestHandlerWithStaticFiles({
     build,
