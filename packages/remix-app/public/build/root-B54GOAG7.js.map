@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../app/root.tsx"],
-  "sourcesContent": ["import type { MetaFunction } from \"@remix-run/deno\";\nimport {\n  Links,\n  LiveReload,\n  Meta,\n  Outlet,\n  Scripts,\n  ScrollRestoration,\n} from \"@remix-run/react\";\nimport * as React from \"react\";\n\nexport const meta: MetaFunction = () => ({\n  charset: \"utf-8\",\n  title: \"New Remix App\",\n  viewport: \"width=device-width,initial-scale=1\",\n});\n\nexport default function App() {\n  return (\n    <html lang=\"en\">\n      <head>\n        <Meta />\n        <Links />\n      </head>\n      <body>\n        <Outlet />\n        <ScrollRestoration />\n        <Scripts />\n        <LiveReload />\n      </body>\n    </html>\n  );\n}\n"],
-  "mappings": ";;;;;;;;;;;;;;AASA,YAAuB;AAEhB,IAAM,OAAqB,MAAO;AAAA,EACvC,SAAS;AAAA,EACT,OAAO;AAAA,EACP,UAAU;AAAA;AAGG,eAAe;AAC5B,SACE,oCAAC,QAAD;AAAA,IAAM,MAAK;AAAA,KACT,oCAAC,QAAD,MACE,oCAAC,MAAD,OACA,oCAAC,OAAD,QAEF,oCAAC,QAAD,MACE,oCAAC,QAAD,OACA,oCAAC,mBAAD,OACA,oCAAC,SAAD,OACA,oCAAC,YAAD;AAAA;",
-  "names": []
-}

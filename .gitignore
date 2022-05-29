@@ -24,3 +24,7 @@ node_modules
 */target/
 */__test__/*
 */npm/*
+*/.cache/*
+packages/remix-app/public/build/
+packages/remix-app/build/
+packages/remix-app/.cache
