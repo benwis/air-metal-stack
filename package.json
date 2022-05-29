@@ -13,7 +13,8 @@
     "lint": "npx --yes turbo run lint",
     "typecheck": "npx --yes turbo run typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,md}\"",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "deploy": "cd packages && deployctl deploy --prod --include=remix-app,rust_functions --exclude=node_modules --project=remix-air-metal-stack ./remix-app/build/index.js"
   },
   "devDependencies": {
     "patch-package": "^6.4.7",

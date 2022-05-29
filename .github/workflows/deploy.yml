@@ -1,0 +1,66 @@
+name: 🤸🏽 Integrate & Deploy
+on: [push]
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  lint:
+    name: 🤸🏽 lint, build & deploy
+    runs-on: ubuntu-22.04
+    permissions:
+      actions: write
+      id-token: write # Needed for auth with Deno Deploy
+      contents: read # Needed to clone the repository
+    steps:
+      - name: 🛡 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: 🐑 Clone Git Repo
+        uses: actions/checkout@v3
+
+      - name: 🦀 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: ⛓ Install Node deps
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false  
+      
+      - name: 🧦 Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.22
+
+      - name: 🔬 Lint
+        run: npm run lint
+
+      - name: Install wasm-ack
+        uses: jetli/wasm-pack-action@v0.3.0
+
+      - name: 💿 Remix Build
+        run: npm run build
+      # TODO: vendor..?
+
+      # TODO fork action so only upload public & build dirs
+      #      then skip this step
+      - name: 🗑️ Throw out deps
+        run: rm -rf ./packages/remix-appnode_modules
+
+      - name: 📂 Make deno dir
+        run: mkdir ./deno
+
+      - name: 📝 Copy Remix build files into outut dir
+        run: cp -R ./packages/remix-app/{build,public} ./deno
+
+      - name: 📝 Copy Rust WASM package files into output dir
+        run: mkdir -p ./deno/rust_functions/build/browser && cp -R ./packages/rust_functions/build/browser/ ./deno/rust_functions/build/browser
+      
+      - name: 🚛 Ship It
+        uses: denoland/deployctl@v1
+        with:
+          project: "remix-air-metal-stack"
+          entrypoint: "./build/index.js" 
+          root: "./deno"

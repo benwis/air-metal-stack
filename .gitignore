@@ -28,3 +28,5 @@ node_modules
 packages/remix-app/public/build/
 packages/remix-app/build/
 packages/remix-app/.cache
+*/.turbo/*
+turbo-build.log

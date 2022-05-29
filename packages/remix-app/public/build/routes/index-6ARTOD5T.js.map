@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../app/routes/index.tsx"],
-  "sourcesContent": ["import * as React from \"react\";\n\nexport default function Index() {\n  return (\n    <div style={{ fontFamily: \"system-ui, sans-serif\", lineHeight: \"1.4\" }}>\n      <h1>Welcome to Remix</h1>\n      <ul>\n        <li>\n          <a\n            target=\"_blank\"\n            href=\"https://remix.run/tutorials/blog\"\n            rel=\"noreferrer\"\n          >\n            15m Quickstart Blog Tutorial\n          </a>\n        </li>\n        <li>\n          <a\n            target=\"_blank\"\n            href=\"https://remix.run/tutorials/jokes\"\n            rel=\"noreferrer\"\n          >\n            Deep Dive Jokes App Tutorial\n          </a>\n        </li>\n        <li>\n          <a target=\"_blank\" href=\"https://remix.run/docs\" rel=\"noreferrer\">\n            Remix Docs\n          </a>\n        </li>\n      </ul>\n    </div>\n  );\n}\n"],
-  "mappings": ";;;;;;AAAA,YAAuB;AAER,iBAAiB;AAC9B,SACE,oCAAC,OAAD;AAAA,IAAK,OAAO,EAAE,YAAY,yBAAyB,YAAY;AAAA,KAC7D,oCAAC,MAAD,MAAI,qBACJ,oCAAC,MAAD,MACE,oCAAC,MAAD,MACE,oCAAC,KAAD;AAAA,IACE,QAAO;AAAA,IACP,MAAK;AAAA,IACL,KAAI;AAAA,KACL,kCAIH,oCAAC,MAAD,MACE,oCAAC,KAAD;AAAA,IACE,QAAO;AAAA,IACP,MAAK;AAAA,IACL,KAAI;AAAA,KACL,kCAIH,oCAAC,MAAD,MACE,oCAAC,KAAD;AAAA,IAAG,QAAO;AAAA,IAAS,MAAK;AAAA,IAAyB,KAAI;AAAA,KAAa;AAAA;",
-  "names": []
-}
