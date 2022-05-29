@@ -10,7 +10,7 @@ import init from "../rust_functions/build/browser/rust_functions.js";
 const go = async () => {
 
   // You'll need to read the WASM file from the build directory
-  await init(Deno.readFile('../rust_functions/build/browser/rust_functions_bg.wasm'));
+  await init(Deno.readFile('./'));
 
   const remixHandler = createRequestHandlerWithStaticFiles({
     build,
