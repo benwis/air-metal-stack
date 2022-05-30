@@ -12,11 +12,11 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn add(a: u32, b: u32) -> u32 {
+pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
 
 #[wasm_bindgen]
 pub fn greet() {
-    alert("Welcome to the Remix<->Rust Starter Site!\nThis alert comes from browser-side WASM!");
+    alert("Welcome to the Air Metal Stack!\nThis alert comes from browser-side WASM!");
 }
