@@ -1,68 +1,100 @@
-# Remix Air Metal Stack
-## _Now with WASM!_
+# Remix + Deno + Rust<->Webassembly - The Air Metal Stack
 
-If you want to combine the **Web Fundamentals & Modern UX** of Remix together with the **Reliability, Performance & Efficiency** of Rust, you can use functions built with Rust on your server. Useful for intensive computations such as on the fly machine learning tasks, image processing, fibonacci etc.
+Welcome to the Air Metal Stack for Remix! 🦕 + 🦀
+This stack is a good choice if you want to run on Deno, deploy to Deno Deploy, and use Rust compiled to WASM for certain functions.
 
-This repo contains changes to the Remix compiler to add support for .wasm files.
+This is a monorepo, with a package for Rust compiled to WASM called `rust_functions`, and a package for your Remix app called `remix-app`. Both of these get built using Turborepo.
 
-## Example
+For more, check out the [Remix docs](https://remix.run/docs).
 
-If you don't have Rust installed on your computer the first thing to do is to get this set up
-
-Installing the WASM tools:
-
-The WASM version of the function lives in the rust-functions folder. It gets rebuilt everytime you run `npm run predev` in package.json.
-
-Here we use `wasm-pack` to comile our Rust code down to WASM
-
-Installing [wasm-pack](https://github.com/rustwasm/wasm-pack):
+## Install
 
 ```sh
-cargo install wasm-pack
+npx create-remix@latest --template benwis/air-metal-stack
 ```
 
-In this example, the Rust library is already built with the associated code. But if you wanted to set up your own library you could do so by running the following command:
+## Managing dependencies
+
+Read about [how we recommend to manage dependencies for Remix projects using Deno](https://github.com/remix-run/remix/blob/main/decisions/0001-use-npm-to-manage-npm-dependencies-for-deno-projects.md).
+
+- ✅ You should use `npm` to install NPM packages
+  ```sh
+  npm install react
+  ```
+  ```ts
+  import { useState } from "react";
+  ```
+- ✅ You may use inlined URL imports or [deps.ts](https://deno.land/manual/examples/manage_dependencies#managing-dependencies) for Deno modules.
+  ```ts
+  import { copy } from "https://deno.land/std@0.138.0/streams/conversion.ts";
+  ```
+- ❌ Do not use [import maps](https://deno.land/manual/linking_to_external_code/import_maps).
+
+## Setting Up Rust
+
+1. Install the Rust language and it's associated tools. You only need to run this once, as it installs globally. If you already have Rust installed, you can skip this step.
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+2. Install wasm-pack to wrap your compiled WASM code in a TS wrapper. The command for Mac and Linux is below. If you're on Windows, visit [this link](https://rustwasm.github.io/wasm-pack/installer/#) for an exe. You only need to run this once, as it installs globally. If you already have wasm-pack installed, you can skip this step.
+```sh
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+```
+## Development
+
+From your terminal:
 
 ```sh
-cargo new --lib <library-name>
+npm run build
+npm run dev
 ```
 
-Then build the library using:
+This starts your app in development mode, rebuilding Node assets on file changes. Rust assets currently require you to rerun `npm run build` to recompile them.
+
+### Type hints
+
+This template provides type hinting to VS Code via a [dedicated import map](./.vscode/resolve_npm_imports.json).
+
+To get types in another editor, use an extension for Deno that supports import maps and point your editor to `./.vscode/resolve_npm_imports.json`.
+
+For more, see [our decision doc for interop between Deno and NPM](https://github.com/remix-run/remix/blob/main/decisions/0001-use-npm-to-manage-npm-dependencies-for-deno-projects.md#vs-code-type-hints).
+
+## Production
+
+First, build your app for production:
 
 ```sh
-cd <library-name>
-wasm-pack build --target nodejs
+npm run build
 ```
 
-After succesfully bulding the library you can add this to your dependencies by running inside your remix project:
+Then run the app in production mode:
 
 ```sh
-npm install ./<library-name>/pkg
-```
-
-This will add the dependency to your `package.json` file.
-
-```json
-    ...
-    "@remix-run/serve": "1.1.3",
-    "<library-name>": "file:<library-name>/pkg"
-    ...
+npm start
 ```
 
 ## Deployment
-Currently using a github action
 
-## Notes:
+Building the Deno app (`npm run build`) results in two outputs:
 
-_To prevent remix from including the rust-functions library in the client build we can re-export the functions using a `.server.ts` file, e.g. [rust.server.ts](app/rust.server.ts)_
+- `build/` (server bundle)
+- `public/build/` (browser bundle)
 
-_This project includes a patch to @remix-run/dev to support the .wasm add on. These should be automatically applied during the npm install step, but may become unecessary in the future._
+You can deploy these bundles to any host that runs Deno, but here we'll focus on deploying to [Deno Deploy](https://deno.com/deploy).
 
-## Related Links
+## Setting up Deno Deploy
 
-[Rust](https://rust-lang.org/)
+1. [Sign up](https://dash.deno.com/signin) for Deno Deploy.
+
+2. [Create a new Deno Deploy project](https://dash.deno.com/new) for this app.
+
+3. We use a Github Action to deploy our project's build artifacts to Deno Deploy. To enable this functionality, you must go to your project's settings in Deno and link your Github repo in manual mode.
+
+4. Add a DENO_ENV environment variable to your Deno Deploy project with a value of `production`. This allows us to know when we're running in production and correctly resolve the path to the WASM files.
 
 
-[Wasm-pack](https://github.com/rustwasm/wasm-pack)
+### Deploying to Deno Deploy
 
+After you've set up Deno Deploy, simply push to your Github repo. It should push your changes over to Deno Deploy. Check the Action in your Github Account, or the Deno Deploy project page for confirmation
 

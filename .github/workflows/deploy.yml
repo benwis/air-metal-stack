@@ -53,13 +53,12 @@ jobs:
         run: rm -rf ./node_modules
 
       - name: 📂 Make deno and remix dir
-        run: mkdir -p ./deno/packages/remix-app
+        run: mkdir -p ./deno
       
       - name: 📝 Copy Remix build files into outut dir
-        run: cp -R ./packages/remix-app/{build,public} ./deno/packages/remix-app
-
+        run: cp -R ./packages/remix-app/{build,public} ./deno
       - name: 📝 Copy Rust WASM package files into output dir
-        run: mkdir -p ./deno/packages/rust_functions/build/ && cp -R ./packages/rust_functions/build/browser ./deno/packages/rust_functions/build
+        run: mkdir -p ./deno/rust_functions/build/ && cp -R ./packages/rust_functions/build/browser ./deno/rust_functions/build
 
       - name: 🔍 List file contents of root
         run: tree ./
