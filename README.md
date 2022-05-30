@@ -80,8 +80,9 @@ npm start
 
 Building the Deno app (`npm run build`) results in two outputs:
 
-- `build/` (server bundle)
-- `public/build/` (browser bundle)
+- `packages/remix-app/build/` (server bundle)
+- `packages/remix-app/public/build/` (browser bundle)
+- `packages/rust_functions/build/browser` (WASM browser bundle)
 
 You can deploy these bundles to any host that runs Deno, but here we'll focus on deploying to [Deno Deploy](https://deno.com/deploy).
 
@@ -100,3 +101,15 @@ You can deploy these bundles to any host that runs Deno, but here we'll focus on
 
 After you've set up Deno Deploy, simply push to your Github repo. It should push your changes over to Deno Deploy. Check the Action in your Github Account, or the Deno Deploy project page for confirmation
 
+### Changing Things
+- If you'd like to change the name of the Rust crate, be careful to change it in the following places
+  - `packages/remix-app/server.ts`
+  - `packages/remix-app/routes/rust-demo.tsx`
+  - `packages/remix-app/entry.client.tsx`
+  - `packages/remix-app/entry.server.tsx`
+  - `packages/remix-app/package.json`
+
+### Notes
+
+- Remix assumes that the public, build, and rust_functions folders will be in the root of the project on Deno Deploy. Changing that structure may lead to errors in production. Caution is advised.
+- 
