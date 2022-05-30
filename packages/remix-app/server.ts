@@ -11,7 +11,7 @@ const go = async () => {
 
   // You'll need to read the WASM file from the build directory
   if (Deno.env.get("DENO_ENV") == "production") {
-    await init(Deno.readFile('./packages/rust_functions/build/browser/rust_functions_bg.wasm'));
+    await init(Deno.readFile('./rust_functions/build/browser/rust_functions_bg.wasm'));
   } else {
     await init(Deno.readFile('../rust_functions/build/browser/rust_functions_bg.wasm'));
   }
