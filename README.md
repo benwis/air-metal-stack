@@ -5,7 +5,9 @@ This stack is a good choice if you want to run on Deno, deploy to Deno Deploy, a
 
 This is a monorepo, with a package for Rust compiled to WASM called `rust_functions`, and a package for your Remix app called `remix-app`. Both of these get built using Turborepo.
 
-For more, check out the [Remix docs](https://remix.run/docs).
+There is a [demo](https://remix-air-metal-stack.deno.dev/) where you can see WASM running both on the worker via an action and on the client with an alert popup.
+
+For more, check out the [Remix docs](https://remix.run/docs), the [wasm-pack docs](https://rustwasm.github.io/wasm-pack/), and the [Rust page](https://www.rust-lang.org/).
 
 ## Install
 
