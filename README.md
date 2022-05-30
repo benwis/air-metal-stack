@@ -1,4 +1,4 @@
-# Remix + Deno + Rust<->Webassembly - The Air Metal Stack
+# Remix + Deno + Rust -> Webassembly - The Air Metal Stack
 
 Welcome to the Air Metal Stack for Remix! 🦕 + 🦀
 This stack is a good choice if you want to run on Deno, deploy to Deno Deploy, and use Rust compiled to WASM for certain functions.
@@ -112,4 +112,3 @@ After you've set up Deno Deploy, simply push to your Github repo. It should push
 ### Notes
 
 - Remix assumes that the public, build, and rust_functions folders will be in the root of the project on Deno Deploy. Changing that structure may lead to errors in production. Caution is advised.
-- 
