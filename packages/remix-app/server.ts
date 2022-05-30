@@ -10,8 +10,11 @@ import init from "../rust_functions/build/browser/rust_functions.js";
 const go = async () => {
 
   // You'll need to read the WASM file from the build directory
-  await init(Deno.readFile('../rust_functions/build/browser/rust_functions_bg.wasm'));
-
+  if (Deno.env.get("DENO_ENV") == "production") {
+    await init(Deno.readFile('./packages/rust_functions/build/browser/rust_functions_bg.wasm'));
+  } else {
+    await init(Deno.readFile('../rust_functions/build/browser/rust_functions_bg.wasm'));
+  }
   const remixHandler = createRequestHandlerWithStaticFiles({
     build,
     mode: Deno.env.get("NODE_ENV"),
