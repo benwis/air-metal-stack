@@ -1,13 +1,14 @@
-# Remix + Deno
+# Remix + Deno + Rust - The Air Metal Stack
 
-Welcome to the Deno template for Remix! 🦕
+Welcome to the Air Metal Stack for Remix! 🦕
+** This stack is on hold until Deno fixes their deployctl tool, as it's impossible to build right now. **
 
 For more, check out the [Remix docs](https://remix.run/docs).
 
 ## Install
 
 ```sh
-npx create-remix@latest --template deno
+npx create-remix@latest --template benwis/remix-air-metal
 ```
 
 ## Managing dependencies

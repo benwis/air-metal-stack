@@ -67,6 +67,12 @@ jobs:
       - name: 🔍 List file contents of deno dir
         run: tree ./deno
 
+      - name: Archive built ouput
+        uses: actions/upload-artifact@v3
+        with:
+          name: Deno Build Package
+          path: ./deno
+
       - name: 🚛 Ship It
         uses: denoland/deployctl@v1
         with:
