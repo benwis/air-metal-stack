@@ -43,6 +43,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```sh
 curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 ```
+
+3. Install cargo-watch to allow the Rust code to compile on changes in dev mode
+```sh
+cargo install cargo-watch
+```
 ## Development
 
 From your terminal:
