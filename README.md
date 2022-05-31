@@ -50,14 +50,14 @@ cargo install cargo-watch
 ```
 ## Development
 
-From your terminal:
+From your terminal in the project root:
 
 ```sh
 npm run build
 npm run dev
 ```
 
-This starts your app in development mode, rebuilding Node assets on file changes. Rust assets currently require you to rerun `npm run build` to recompile them.
+This starts your app in development mode, rebuilding TS and Rust assets on file changes. 
 
 ### Type hints
 
