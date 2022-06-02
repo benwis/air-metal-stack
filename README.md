@@ -43,6 +43,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```sh
 curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 ```
+If you have issues with a lack of precompiled binaries for your platform(on an M1 Mac for example), you can just have cargo compile and install it with the below command.
+```sh
+cargo install wasm-pack
+```
 
 3. Install cargo-watch to allow the Rust code to compile on changes in dev mode
 ```sh
